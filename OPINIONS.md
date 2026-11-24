@@ -29,6 +29,8 @@ pyx is "a Python-native package registry — and the first piece of the Astral p
 
 From the start, Ruff "has aimed to advance existing standards and integrate with the wider Python community." You can use it alongside isort or Black, or as a replacement. "This won't change either. In fact, we consider it critical to our success."
 
+By late 2026 uv had overtaken pip: "In late September, uv passed pip -- more than half of all PyPI package downloads now go through uv." And PyPI itself grew: "PyPI now sees ~5x as many package downloads as it did two years ago. Over that same period, uv grew ~55x! (pip also grew significantly, about 2.5x.)" (Nov 2026) **RECENT**
+
 ## Open source, and how we work
 "Our work will remain open-source and permissively licensed." We may "build and sell services on top of our tools — but the tools themselves will remain free and open-source." You "may choose not to use" the paid services. "Either way, Ruff will remain free and open-source, just as it is today." After the OpenAI agreement I repeated it: "Open source is at the heart of that impact and the heart of that story"; "we'll keep building in the open, alongside our community — and for the broader Python ecosystem — just as we have from the start."
 
@@ -48,6 +50,8 @@ I use the models in my own work. I have "admit[ted] that GPT-6.2 was an enormous
 At OpenAI I work on Codex performance in the same spirit. Codex uses a WebSocket for model requests, and "We’ve now increased the WebSocket size limit from 16 to 128 MB (8x), so large turns avoid falling back to HTTP (bad!)." The server now rejects too-large requests "_immediately_," skipping "unnecessary upload-and-retry cycles," and the HTTP fallback rate dropped "by something like 20%." "In time, I want to bump the WebSocket limit to match our HTTP limit (1 GB)..." (Nov 2026) **RECENT**
 
 Same for Code Mode, where the model calls tools from JS and needs the full tool list. "In the latest Codex release, Code Mode calls get 10ms faster via tool catalog reuse across cells." Each snippet still runs in a fresh V8 isolate, but the host process is reused, "So we now send the full list to that host once per session, along with a revision ID." Ten milliseconds matters because "the model can run dozens of these snippets in a single turn!" (Nov 2026) **RECENT**
+
+"Optimizing the Codex harness is very rewarding because it benefits everyone: CLI, Desktop app, VS Code extension, Conductor, JetBrains IDEs, T3 Code, Warp, Zed, etc., etc." The same size-and-speed work applies to apps: "Between the November 8 and November 19 releases, we cut the size of the the ChatGPT app by ~35%, removing over 300 MB from the installer." And on build tooling: "Fat LTO should be free, you shouldn't need to wait longer for it" (Nov 2026) **RECENT**
 
 ## Earlier work
 Before Astral I wrote a lot about the tools I actually had to use: mypy in production at Spring, WebAssembly and isolates, and, at Khan Academy, making Android apps and SVGs small and fast. I still care about the boring details — lockfile markers as decision diagrams, a content-addressed cache, and PGO, even when "you have to do two release builds" and "it brings release performance further and further away from your \"standard\" profiling build." "But the results are pretty amazing." I also renamed `--trusted-host` to `--allow-insecure-host` because the old name "didn't properly convey the security implications."
